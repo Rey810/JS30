@@ -70,10 +70,6 @@
       const minuteHand = document.querySelector(".min-hand");
       const hourHand = document.querySelector(".hour-hand");
 
-      let totalSecondsDegrees = 0;
-      let totalMinutesDegrees = 0;
-      let totalHoursDegrees = 0;
-
       function setTime() {
         // get current time
         const now = new Date();
@@ -86,14 +82,10 @@
         const minutesDegrees = (minutes / 60) * 360 + 90;
         const hoursDegrees = (hours / 24) * 360 + 90;
 
-        totalSecondsDegrees = secondsDegrees;
-        totalMinutesDegrees = minutesDegrees;
-        totalHoursDegrees = hoursDegrees;
-
         // update rotate amount to reflect time
-        secondHand.style.transform = `rotate(${totalSecondsDegrees}deg)`;
-        minuteHand.style.transform = `rotate(${totalMinutesDegrees}deg)`;
-        hourHand.style.transform = `rotate(${totalHoursDegrees}deg)`;
+        secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+        minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+        hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
       }
 
       setInterval(setTime, 1000);
